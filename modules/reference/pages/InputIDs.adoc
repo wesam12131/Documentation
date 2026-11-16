@@ -1,0 +1,378 @@
+= InputIDs list and their functionality
+
+List of all the inputIDs and their functionality
+
+[NOTE]
+====
+Invoking AbilitySystem's PressInputID means it will hold it forever until 
+Input + release = press
+====
+[WARNING]
+====
+Certain actions may "Consume" the input and no ReleaseInputID would be required,
+Some actions do not
+Invoking AbilitySystem's PressInputID means it will hold it forever until  ReleaseInputID is called
+PressInputID  on an InputID = Hold
+PressInputID + ReleaseInputID on the same InputID = press
+Certain activations may require certain actions to be already being performed prior
+
+====
+
+
+== List of Loot bags
+
+
+[cols="1,1"]
+|===
+|Input-ID |Functionality  |Actions Required beforehand| Consumes Input
+
+|1
+|Jump
+|N/A
+| True
+
+
+|2
+|Initiate Slide
+|Sprinting
+| True
+
+|3
+|Crouch/Uncrouch
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|4
+|Sprint
+|_
+|Walking
+
+|5
+|ADS (Aim down sights)
+|
+|N/A
+
+|6
+|Fire weapon
+|Bag
+|N/A
+
+|7
+|Swap to Primary
+|Bag
+|N/A
+
+|8
+|Swap to Secondary
+|Bag
+|N/A
+
+|9
+|Interact
+|Bag
+|N/A
+
+|10
+|Reload  
+|Bag
+|N/A
+
+|11
+|Call OVK Weapon
+|Bag
+|N/A
+
+|12
+|Swap Weapon Cycle 
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|13
+|Swap Weapon Cycle (??)
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|14
+|Pull out and hold grenade
+|Bag
+|N/A
+
+|15
+|Throw bag
+|Bag
+|N/A
+
+|16
+|Unknown
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|17
+|Melee
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|18
+|Mask on
+|Bag
+|N/A
+
+|19
+| Pull out Deployable
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|DA_PaintingBagType_Pedro
+|Painting
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|20
+|Unknown
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|21
+|Unknown
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|22
+|Pull out gadget in hand
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|23
+|Cancel interactions safe,lockpicking
+|Content\Prototype\Blueprints\Bags
+|
+
+|24
+|Unknown
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|25
+|Unknown
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|26
+|Unknown
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|27
+|phone activation (Requires Press+Release)
+|Bag
+|DLCs\00004-DLCREMA\Blueprints\Bags
+
+|DA_SatellitePart
+|Solar Panel
+|Bag
+|DLCs\00004-DLCREMA\Blueprints\Bags
+
+|DA_SatellitePrototype
+|Satellite Prototype
+|Bag
+|DLCs\00004-DLCREMA\Blueprints\Bags
+
+|DA_MethBag_Burnt
+|Meth Burned
+|Bag
+|DLCs\00004-DLCREMA\DataAssets\Heists
+
+|DA_MethBag_Pure
+|Meth Pure
+|Bag
+|DLCs\00004-DLCREMA\DataAssets\Heists
+
+|DA_MethBag
+|Meth
+|Bag
+|DLCs\00004-DLCREMA\DataAssets\Heists
+
+|DA_AIBag
+|AI Core
+|Hardcase
+|DLCs\00005-DLCHEIST0001\DataAssets\Heists
+
+|DA_ServerBagCleaned
+|Optional Server
+|Bag
+|DLCs\00005-DLCHEIST0001\DataAssets\Heists
+
+|DA_ServerBagCombined
+|Drone Server
+|Hardcase
+|DLCs\00005-DLCHEIST0001\DataAssets\Heists
+
+|DA_ServerBagDrone
+|Server
+|Bag
+|DLCs\00005-DLCHEIST0001\DataAssets\Heists
+
+|DA_GoldBagType
+|Gold Pile
+|Bag
+|DLCs\00010-DLCHEIST0002\Blueprints\Bags
+
+|DA_CleanedEvidenceBagType
+|Optional Evidence
+|Bag
+|DLCs\00030-DLC0003\DataAssets\Bags
+
+|DA_EvidenceBagType
+|Evidence
+|Bag
+|DLCs\00030-DLC0003\DataAssets\Bags
+
+|DA_EvidenceGenericBagType
+|Evidence
+|Bag
+|DLCs\00030-DLC0003\DataAssets\Bags
+
+|DA_EvidenceHoustonBagType
+|Houston's Evidence
+|Hardcase
+|DLCs\00030-DLC0003\DataAssets\Bags
+
+|DA_DIM_RareStone
+|Opal
+|Bag
+|DLCs\00060-FREE0002\DataAssets
+
+|DA_DegradingTechBagType_02_LowValue
+|Degraded Device
+|Bag
+|DLCs\00150-DLCSHIYA\Blueprints\Bags
+
+|DA_DegradingTechBagType_02_MediumValue
+|Partially Degraded Device
+|Bag
+|DLCs\00150-DLCSHIYA\Blueprints\Bags
+
+|DA_DegradingTechBagType_02
+|Device
+|Bag
+|DLCs\00150-DLCSHIYA\Blueprints\Bags
+
+|DA_PietroBagType
+|Pietro
+|Bag
+|DLCs\00180-DLCDEMA\Blueprints\Bags
+
+|DA_RiflesBagType
+|Assault Rifles
+|Bag
+|DLCs\00180-DLCDEMA\Blueprints\Bags
+
+|DA_TeddyMooBagType
+|Golden Moo
+|Bag
+|DLCs\00180-DLCDEMA\Blueprints\Bags
+
+|DA_CigarsBagType
+|Cigars
+|Bag
+|DLCs\00213-SKY\DataAssets\Bags
+
+|DA_FigurineBagType
+|Figurine (cat)
+|Bag
+|DLCs\00213-SKY\DataAssets\Bags
+
+|DA_SatellitePrototype_Alpha
+|Satellite Prototype
+|Bag
+|DLCs\00215-MURK\DataAssets\Bags
+
+|DA_SatellitePrototype_Beta
+|Satellite Prototype
+|Bag
+|DLCs\00215-MURK\DataAssets\Bags
+
+|DA_SatellitePrototype_Gamma
+|Satellite Prototype
+|Bag
+|DLCs\00215-MURK\DataAssets\Bags
+
+|DA_SatellitePrototype_Omega
+|Satellite Prototype
+|Bag
+|DLCs\00215-MURK\DataAssets\Bags
+
+|===
+
+
+
+== List of Equipment bags
+
+
+[cols="1,1,1,1"]
+|===
+|File Name |Loot In Game |Bag/Hardcase |File-path
+
+|DA_CageBag
+|Secure Cage Parts
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|DA_DeviceBag
+|Steering Device
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|DA_ZiplineBag
+|Zipline
+|Bag
+|Content\Prototype\Blueprints\Bags
+
+|DA_Authenticator
+|Authenticator
+|Bag
+|Content\Gameplay\Breaching\Bags
+
+|DA_DrillPartBagType
+|Drill Parts
+|Hardcase
+|Content\Gameplay\Breaching\Bags
+
+|DA_EMPBag
+|EMP
+|Bag
+|Content\Gameplay\Breaching\Bags
+
+|DA_EquipmentBag
+|Equipment
+|Bag
+|Content\Gameplay\Breaching\Bags
+
+|DA_ThermiteBag
+|Thermite
+|Bag
+|Content\Gameplay\Breaching\Bags
+
+|DA_MethIngridientBag
+|Meth Ingredients
+|Bag
+|DLCs\00004-DLCREMA\DataAssets\Heists
+
+|DA_EMPBagNoWP
+|EMP Device
+|Bag
+|DLCs\00030-DLC0003\DataAssets\Bags
+
+|DA_SatelliteDishBag
+|Satellite Dish
+|Bag
+|DLCs\00080-DLC0004\DataAssets
+
+|DA_ExplosivesBag
+|Explosives
+|Bag
+|DLCs\00244-SharkNight\Blueprints\Bags
+
+
+
+
