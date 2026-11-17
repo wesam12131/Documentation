@@ -35,7 +35,7 @@ In the case of multiple **potential** abilities per input/per base ability: Get 
 == List of IDs
 
 
-[cols="1,1"]
+[cols="1,1,1,1"]
 |===
 |Input ID |Assosciated Gameplay Ability (s) |Consumes Input |Notes
 
