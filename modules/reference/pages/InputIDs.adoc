@@ -5,18 +5,30 @@ List of all the inputIDs and their functionality
 [NOTE]
 ====
 InputIDs are numerical Identifers for keybinds linked to GameplayAbilities
+
 Invoking AbilitySystem's PressInputID means it will hold it forever until 
+
+BASE ability: Base ability for a group of gameplay abilities
+
 Input + release = press
+
 ====
 
 [WARNING]
 ====
-Certain actions may "Consume" the input and no ReleaseInputID would be required,
-Some actions do not
-Invoking AbilitySystem's PressInputID means it will hold it forever until  ReleaseInputID is called
-PressInputID  on an InputID = Hold
+Certain actions may "Consume" the input and no ReleaseInputID would be required, while some actions do not.
+
+
+
+Invoking AbilitySystem's PressInputID means it will hold it forever until  ReleaseInputID is called unless the GA consumes the input
+
+PressInputID  on an InputID = Hold 
+
 PressInputID + ReleaseInputID on the same InputID = press
-Certain activations may require certain actions to be already being performed prior
+
+Certain activations may require  other certain actions to be already being performed prior
+
+In the case of multiple **potential** abilities per input/per base ability: Get all of the objects containing the BASE ability for said GA and compare the object's outer.PawnPrivate to the Player's pawn for ownership verification
 ====
 
 
@@ -25,83 +37,85 @@ Certain activations may require certain actions to be already being performed pr
 
 [cols="1,1"]
 |===
-|Input-ID |Functionality  |Actions Required beforehand| Consumes Input
+|Input ID |Assosciated Gameplay Ability (s) |Consumes Input |Notes
 
 |1
 |Jump
-|N/A
+|GA_PlayerJump_C | GA_Traverse
 | True
 
 
 |2
 |Initiate Slide
-|Sprinting
+|GA_Slide_C
 | True
+| Needs to be sprinting to be activated
 
 |3
-|Crouch/Uncrouch
-|Bag
+|GA_Crouch
 |_
+|Crouch/Uncrouch
 
 |4
+|GA_Run_C
 |Sprint
-|_
-|Walking
+|__
 
 |5
-|ADS (Aim down sights)
-|
+|(GA_PlayerTarget_C) (SBZARGESTargetAbility)
 |N/A
+|ADS (Aim down sights)
+
 
 |6
-|Fire weapon
-|Bag
+|GA_Fire_C | SBZPlayerFireDualWieldWeaponAbility | GA_FireM606_C  | GA_FireProjectile_C
 |N/A
+|Fire weapon
 
 |7
-|Swap to Primary
+|(GA_EquipPrimaryWeapon)
 |Bag
-|N/A
+|Swap to Primary
 
 |8
-|Swap to Secondary
+|GA_EquipSecondaryWeapon
 |Bag
-|N/A
+|Swap to Secondary
 
 |9
-|Interact
+|GA_Interact_C
 |Bag
-|N/A
+|Interact 
 
 |10
-|Reload  
+|GA_Reload_C
 |Bag
-|N/A
+|Reload
 
 |11
-|Call OVK Weapon
+|GA_RequestOverkillWeapon_C | GA_Request_ThePunch_C | GA_Request_Overskill_Operator_C
 |Bag
-|N/A
+|Call OVK Weapon
 
 |12
-|Swap Weapon Cycle 
+|GA_EquipNextWeapon
 |Bag
-|_
+|Swap Weapon Cycle
 
 |13
-|Swap Weapon Cycle (??)
+|GA_EquipPreviousWeapon
+|Bag
+|Swap weapon cycle
+
+|14
+|GA_ThrowItem_C
 |Bag
 |_
 
-|14
-|Pull out and hold grenade
-|Bag
-|N/A
-
 |15
-|Throw bag
+|GA_ThrowCarry_C
 |Bag
-|N/A
+|Throw bag
 
 |16
 |Unknown
@@ -109,57 +123,61 @@ Certain activations may require certain actions to be already being performed pr
 |_
 
 |17
-|Melee
+|GA_Melee_C
 |Bag
-|_
+|Melee
 
 |18
-|Mask on
+|GA_MaskOnInput_C
 |Bag
-|N/A
+|Mask on
 
 |19
-| Pull out Deployable
+| GA_EquipPlacableAbility_C
 |Bag
-|_
+|Pull out Deployable
 
 |20
-|Unknown
+|SBZEquipNextGadgetAbility
 |Bag
 |_
 
 |21
-|Unknown
+|SBZPlayerViewTargetAbility
 |Bag
 |_
 
 |22
-|Pull out gadget in hand
+| GA_PlaceMicroCamera_C GA_PlaceECMJammer_C GA_PlaceMicroCamera_C GA_PlaceableTripMine_C GA_PlaceItem_C GA_Place_TripperLaser_C GA_PlaceableSensorTool_C 
 |Bag
-|_
+|Pull out gadget
 
 |23
-|Cancel interactions safe,lockpicking
+|GA_HumanShieldShove
 |_
 |
 
 |24
-|Unknown
+|GA_EquipPlaceable
 |Bag
 |_
 
-|25
-|Unknown
-|Bag
-|_
-
-|26
-|Unknown
-|Bag
-|_
 
 |27
+| GA_Phone_C
+|Bag
 |phone activation (Requires Press+Release)
+
+|38
+|SBZEquipConsumableAbility
 |Bag
 |_
+
+|===
+
+Certain Abilities aren't bounded to any player-input:
+GA_Downed_C,GA_BleedOut,GA_Equip_C,GA_Shout_C,GA_Carry_C
+,GA_Land_C,GA_Tased_C,SBZCuffedAbility,SBZEquipAutoAbility,GA_MaskOnAction_C)
+GA_MiniGame_C,GA_Tased_Gently_C,GA_Tased_Uncontrolled_C ,SBZKillHumanShieldAbility,SBZSubduedAbility,GA_Tackle_C,SBZToolUnequippedAbility,GA_CuttingTool_C ,SBZExitPhoneAbility ,SBZPlayerRunExitAbility,SBZCanUIActivatePhoneAbility,GA_AnimatedInteraction_C,GA_EquippableInspect_C,GA_HackDrone_C ,GA_PlayerWeaponTanking_C,GA_PlayerWeaponWallReaction_C,GA_PlayerThrowBagAnimation_C,GA_PlayerEmote_C,SBZSkillHET5AOEDamageAbility,SBZTickOverskillOperatorAbility,GA_PlayerEndCycleReload_C (Serves as pump-action for pumps and
+SBZPlayerEndCycleDualWieldWeaponAbility,SBZPlayerLeftCycleDualWieldWeaponAbility
 
