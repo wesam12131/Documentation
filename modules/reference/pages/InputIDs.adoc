@@ -6,11 +6,8 @@ List of all the inputIDs and their functionality
 ====
 InputIDs are numerical Identifers for keybinds linked to GameplayAbilities
 
-Invoking AbilitySystem's PressInputID means it will hold it forever until 
+BASE ability: Base class ability for a group of gameplay abilities
 
-BASE ability: Base ability for a group of gameplay abilities
-
-Input + release = press
 
 ====
 
@@ -24,7 +21,7 @@ Some Gameplay Abilities consider PressInputID + ReleaseInputID as a *Hold* actio
 
 Some Gameplay Abilities  may require  other certain abilities/actions to be already being performed prior (EX: GA_Slide requiring sprinting beforehand)
 
-In the case of multiple **potential** abilities per input/per base ability, Utilize the BASE class of your ability and ensure it belongs to the pawn (Get outer of Ability --> PawnPrivate == Pawn)
+In the case of multiple **potential** abilities per input/per base ability, Utilize the BASE ability and ensure it belongs to the pawn (Get outer of Ability --> Compare PawnPrivate == Pawn)
 ====
 
 
