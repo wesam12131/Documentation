@@ -16,19 +16,15 @@ Input + release = press
 
 [WARNING]
 ====
-Certain actions may "Consume" the input and no ReleaseInputID would be required, while some actions do not.
+Some Gameplay Abilities seek a release before execution so you'd have to call both PressInputID then ReleaseInputID (Ex: GA_Phone)
 
+Some other gameply abilities execute once with PressInputID
 
+Some Gameplay Abilities consider PressInputID + ReleaseInputID as a *Hold* action, and a PressInputID only  as a *Press* action (Ex: GA_Interact)
 
-Invoking AbilitySystem's PressInputID means it will hold it forever until  ReleaseInputID is called unless the GA consumes the input
+Some Gameplay Abilities  may require  other certain abilities/actions to be already being performed prior (EX: GA_Slide requiring sprinting beforehand)
 
-PressInputID  on an InputID = Hold 
-
-PressInputID + ReleaseInputID on the same InputID = press
-
-Certain activations may require  other certain actions to be already being performed prior
-
-In the case of multiple **potential** abilities per input/per base ability: Get all of the objects containing the BASE ability for said GA and compare the object's outer.PawnPrivate to the Player's pawn for ownership verification
+In the case of multiple **potential** abilities per input/per base ability, Utilize the BASE class of your ability and ensure it belongs to the pawn (Get outer of Ability --> PawnPrivate == Pawn)
 ====
 
 
@@ -37,49 +33,49 @@ In the case of multiple **potential** abilities per input/per base ability: Get 
 
 [cols="1,1,1,1"]
 |===
-|Input ID |Assosciated Gameplay Ability (s) |Consumes Input |Notes
+|Input ID |Assosciated Gameplay Ability (s) |Base Class |Notes
 
 |1
-|Jump
-|GA_PlayerJump_C | GA_Traverse
-| True
+|GA_PlayerJump_C , GA_Traverse
+| SBZPlayerJumpAbility 
+| 
 
 
 |2
-|Initiate Slide
-|GA_Slide_C
-| True
+|GA_Slide
+|SBZPlayerSlideAbility
 | Needs to be sprinting to be activated
+| 
 
 |3
 |GA_Crouch
-|_
+|SBZPlayerCrouchAbility
 |Crouch/Uncrouch
 
 |4
 |GA_Run_C
 |Sprint
-|__
+|SBZPlayerRunAbility
 
 |5
-|(GA_PlayerTarget_C) (SBZARGESTargetAbility)
-|N/A
-|ADS (Aim down sights)
+|GA_PlayerTarget_C, SBZARGESTargetAbility
+| GA_PlayerTarget_C /Game/Gameplay/Abilities/GA_PlayerTarget.Default__GA_PlayerTarget_C Class /Script/Starbreeze.SBZEquippableTargetAbility
+|ADS (Aim down sights) 
 
 
 |6
-|GA_Fire_C | SBZPlayerFireDualWieldWeaponAbility | GA_FireM606_C  | GA_FireProjectile_C
-|N/A
+|GA_Fire_C , SBZPlayerFireDualWieldWeaponAbility , GA_FireM606_C  , GA_FireProjectile_C
+|/Script/Starbreeze.SBZPlayerFireRangedWeaponAbility
 |Fire weapon
 
 |7
-|(GA_EquipPrimaryWeapon)
-|Bag
+|GA_EquipPrimaryWeapon
+|SBZEquipSpecificAbility
 |Swap to Primary
 
 |8
 |GA_EquipSecondaryWeapon
-|Bag
+|SBZEquipSpecificAbility
 |Swap to Secondary
 
 |9
@@ -89,12 +85,12 @@ In the case of multiple **potential** abilities per input/per base ability: Get 
 
 |10
 |GA_Reload_C
-|Bag
+|SBZPlayerReloadRangedAbility
 |Reload
 
 |11
-|GA_RequestOverkillWeapon_C | GA_Request_ThePunch_C | GA_Request_Overskill_Operator_C
-|Bag
+|GA_RequestOverkillWeapon , GA_Request_ThePunch , GA_Request_Overskill_Operator
+|SBZRequestOverkillBaseAbility
 |Call OVK Weapon
 
 |12
@@ -104,17 +100,17 @@ In the case of multiple **potential** abilities per input/per base ability: Get 
 
 |13
 |GA_EquipPreviousWeapon
-|Bag
+|SBZEquipNextAbility
 |Swap weapon cycle
 
 |14
-|GA_ThrowItem_C
-|Bag
+|GA_ThrowItem
+|SBZThrowItemAbility
 |_
 
 |15
-|GA_ThrowCarry_C
-|Bag
+|GA_ThrowCarry
+|SBZThrowCarryAbility
 |Throw bag
 
 |16
@@ -123,43 +119,44 @@ In the case of multiple **potential** abilities per input/per base ability: Get 
 |_
 
 |17
-|GA_Melee_C
-|Bag
+|GA_Melee
+|SBZPlayerMeleeAbility
 |Melee
 
 |18
-|GA_MaskOnInput_C
-|Bag
+|GA_MaskOnInput
+|SBZMaskOnInputAbility
 |Mask on
 
 |19
-| GA_EquipPlacableAbility_C
-|Bag
+
+|GA_EquipPlacableAbility
+|SBZEquipPlaceableAbility/SBZEquipSpecificAbility
 |Pull out Deployable
 
 |20
 |SBZEquipNextGadgetAbility
-|Bag
+|SBZEquipNextGadgetAbility
 |_
 
 |21
 |SBZPlayerViewTargetAbility
-|Bag
+|SBZPlayerViewTargetAbility
 |_
 
 |22
-| GA_PlaceMicroCamera_C GA_PlaceECMJammer_C GA_PlaceMicroCamera_C GA_PlaceableTripMine_C GA_PlaceItem_C GA_Place_TripperLaser_C GA_PlaceableSensorTool_C 
-|Bag
+| GA_PlaceMicroCamera, GA_PlaceECMJammer , GA_PlaceMicroCamera , GA_PlaceableTripMine , GA_PlaceItem , GA_Place_TripperLaser , GA_PlaceableSensorTool 
+|SBZPlaceToolAbility
 |Pull out gadget
 
 |23
 |GA_HumanShieldShove
-|_
+|SBZShoveHumanShieldAbility
 |
 
 |24
 |GA_EquipPlaceable
-|Bag
+|SBZEquipPlaceableAbility/SBZEquipSpecificAbilit
 |_
 
 
