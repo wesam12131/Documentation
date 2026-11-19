@@ -6,7 +6,7 @@ List of all the inputIDs and their functionality
 ====
 InputIDs are numerical Identifers for keybinds linked to GameplayAbilities
 
-BASE ability: Base class ability for a group of gameplay abilities
+BASE ability: Base class ability for a group of abilities that share a somewhat similar functionality amongst themselves
 
 
 ====
