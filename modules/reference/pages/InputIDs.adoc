@@ -56,13 +56,13 @@ In the case of multiple **potential** abilities per input/per base ability, Util
 
 |5
 |GA_PlayerTarget_C, SBZARGESTargetAbility
-|GA_PlayerTarget_C /Game/Gameplay/Abilities/GA_PlayerTarget.Default__GA_PlayerTarget_C Class /Script/Starbreeze.SBZEquippableTargetAbility
+|SBZEquippableTargetAbility
 |ADS (Aim down sights) 
 
 
 |6
 |GA_Fire_C , SBZPlayerFireDualWieldWeaponAbility , GA_FireM606_C  , GA_FireProjectile_C
-|/Script/Starbreeze.SBZPlayerFireRangedWeaponAbility
+|SBZPlayerFireRangedWeaponAbility
 |Fire weapon
 
 |7
@@ -126,9 +126,8 @@ In the case of multiple **potential** abilities per input/per base ability, Util
 |Mask on
 
 |19
-
 |GA_EquipPlacableAbility
-|SBZEquipPlaceableAbility/SBZEquipSpecificAbility
+|SBZEquipPlaceableAbility 
 |Pull out Deployable
 
 |20
@@ -153,7 +152,7 @@ In the case of multiple **potential** abilities per input/per base ability, Util
 
 |24
 |GA_EquipPlaceable
-|SBZEquipPlaceableAbility/SBZEquipSpecificAbilit
+|SBZEquipPlaceableAbility
 |_
 
 
