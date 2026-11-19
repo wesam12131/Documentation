@@ -34,15 +34,15 @@ In the case of multiple **potential** abilities per input/per base ability, Util
 
 |1
 |GA_PlayerJump_C , GA_Traverse
-| SBZPlayerJumpAbility 
-| 
+|SBZPlayerJumpAbility 
+|_
 
 
 |2
 |GA_Slide
 |SBZPlayerSlideAbility
-| Needs to be sprinting to be activated
-| 
+|Needs to be sprinting to be activated
+
 
 |3
 |GA_Crouch
@@ -56,7 +56,7 @@ In the case of multiple **potential** abilities per input/per base ability, Util
 
 |5
 |GA_PlayerTarget_C, SBZARGESTargetAbility
-| GA_PlayerTarget_C /Game/Gameplay/Abilities/GA_PlayerTarget.Default__GA_PlayerTarget_C Class /Script/Starbreeze.SBZEquippableTargetAbility
+|GA_PlayerTarget_C /Game/Gameplay/Abilities/GA_PlayerTarget.Default__GA_PlayerTarget_C Class /Script/Starbreeze.SBZEquippableTargetAbility
 |ADS (Aim down sights) 
 
 
@@ -159,12 +159,12 @@ In the case of multiple **potential** abilities per input/per base ability, Util
 
 |27
 | GA_Phone_C
-|Bag
+|_
 |phone activation (Requires Press+Release)
 
 |38
 |SBZEquipConsumableAbility
-|Bag
+|_
 |_
 
 |===
